@@ -14,6 +14,7 @@ export const addTask = async (req, res) => {
 
     try {
         const task = await Task.create({ title, description, deadlineDate, file });
+        console.log(task)
         if (!task) {
             res.status(501).send(new Error("Internal error"));
             return;

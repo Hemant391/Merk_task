@@ -12,7 +12,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
 app.use("/task", taskroutes);
 
 app.get('/', (req, res) => {
@@ -20,12 +19,13 @@ app.get('/', (req, res) => {
 });
 
 // MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/taskmanager', {
+mongoose.connect('mongodb+srv://Hemantpanwar399:Hemant1@@todo.kcqul.mongodb.net/?retryWrites=true&w=majority&appName=todo', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
     .then(() => console.log('Connected to MongoDB'))
-    .catch((err) => console.error('Error connecting to MongoDB:', err));
+    .catch((err) => console.error('Error connecting to MongoDB:', err));  // Corrected closing parenthesis
+
 
 // Start Server
 app.listen(4000, () => console.log("Server listening on port 4000"));
